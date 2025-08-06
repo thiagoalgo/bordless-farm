@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://8eqij4idsexa"]
+
+[ext_resource type="Script" uid="uid://pilk25kevk8g" path="res://node_2d.gd" id="1_wtcfe"]
+[ext_resource type="TileSet" uid="uid://crko171dkkhh1" path="res://grass.tres" id="3_epypp"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wtcfe")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_epypp")
