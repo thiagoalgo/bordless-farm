@@ -30,8 +30,8 @@ func _init() -> void:
 	#### For Test
 	#win_side = GameWindowSide.SOUTH
 	#win_side = GameWindowSide.NORTH
-	#win_side = GameWindowSide.EAST
-	win_side = GameWindowSide.WEST
+	win_side = GameWindowSide.EAST
+	#win_side = GameWindowSide.WEST
 	
 	win_margin_top = 0
 	win_margin_bottom = 70
@@ -43,11 +43,11 @@ func _init() -> void:
 
 func _ready() -> void:
 	calc_win_size()
+	generate_map()
 	calc_win_pos()
 	create_window()
-	generate_map()
-
-
+	
+	
 func calc_win_size() -> void:
 	if win_orientation == GameWindowOrientation.VERTICAL:
 		# EAST OR WEST
@@ -64,7 +64,10 @@ func calc_win_pos() -> void:
 		if win_side == GameWindowSide.WEST: 
 			win_pos.x = 0
 		else:
-			win_pos.x = screen_size.x - win_size.x
+			# East
+			# Ajusta a posição para colar no lado, porque tem o arredondamento do tamanho da tela
+			# em relação ao tamanho da multiplicação dos tiles
+			win_pos.x = screen_size.x - win_size.x + (win_size.x - get_map_used_size().x)
 		
 		win_pos.y = 0 + win_margin_top
 	else:
@@ -89,3 +92,15 @@ func generate_map() -> void:
 		for y in range(rows):
 			var pos = Vector2i(x, y)
 			tilemap.set_cells_terrain_connect([pos], 0, 0)
+			
+
+func get_map_used_size() -> Vector2:
+	var used_rect = tilemap.get_used_rect() # em coordenadas de tile
+	var cell_size = tilemap.tile_set.tile_size # tamanho de cada tile em pixels (Vector2i)
+
+	var pixel_size = Vector2(
+		used_rect.size.x * cell_size.x,
+		used_rect.size.y * cell_size.y
+	)
+	
+	return pixel_size
