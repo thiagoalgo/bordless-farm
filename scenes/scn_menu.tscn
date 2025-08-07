@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ddbbrbtahjepy"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 359.0
+offset_bottom = 356.0
+
+[node name="Btn Play" type="Button" parent="."]
+offset_left = 128.0
+offset_top = 305.0
+offset_right = 245.0
+offset_bottom = 336.0
+text = "Play"
