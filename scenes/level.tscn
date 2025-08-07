@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://pilk25kevk8g" path="res://scripts/level.gd" id="1_w7c3h"]
 [ext_resource type="TileSet" uid="uid://crko171dkkhh1" path="res://tiles/grass.tres" id="2_w8frs"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Level" type="Node2D"]
 script = ExtResource("1_w7c3h")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
