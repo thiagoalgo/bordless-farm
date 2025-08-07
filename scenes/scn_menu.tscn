@@ -5,10 +5,12 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 359.0
 offset_bottom = 356.0
 
 [node name="Btn Play" type="Button" parent="."]
+layout_mode = 0
 offset_left = 128.0
 offset_top = 305.0
 offset_right = 245.0

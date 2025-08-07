@@ -33,10 +33,10 @@ var map = {
 
 func _init() -> void:
 	#### For Test
-	#win_side = GameWindowSide.SOUTH
-	#win_side = GameWindowSide.NORTH
+	#map.side = GameWindowSide.SOUTH
+	#map.side = GameWindowSide.NORTH
 	map.side = GameWindowSide.EAST
-	#win_side = GameWindowSide.WEST
+	#map.side = GameWindowSide.WEST
 	
 	map.margin.top = 0
 	map.margin.bottom = 70
@@ -50,7 +50,9 @@ func _ready() -> void:
 	calc_win_size()
 	generate_map()
 	calc_win_pos()
-	create_window()
+	#create_window()
+	create_map()
+	print("")
 	
 	
 func calc_win_size() -> void:
@@ -83,10 +85,15 @@ func calc_win_pos() -> void:
 			map.pos.x = 0
 			map.pos.y = screen_size.y - map.size.y - map.margin.bottom
 
-
-func create_window() -> void:
-	DisplayServer.window_set_size(map.size)
-	DisplayServer.window_set_position(map.pos)
+func create_map() -> void:
+	position = map.pos
+	print(position)
+	
+	
+	
+#func create_window() -> void:
+	#DisplayServer.window_set_size(map.size)
+	#DisplayServer.window_set_position(map.pos)
 
 
 func generate_map() -> void:
