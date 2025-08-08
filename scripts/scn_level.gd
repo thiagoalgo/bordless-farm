@@ -50,9 +50,7 @@ func _ready() -> void:
 	calc_win_size()
 	generate_map()
 	calc_win_pos()
-	#create_window()
 	create_map()
-	print("")
 	
 	
 func calc_win_size() -> void:
@@ -88,12 +86,6 @@ func calc_win_pos() -> void:
 func create_map() -> void:
 	position = map.pos
 	print(position)
-	
-	
-	
-#func create_window() -> void:
-	#DisplayServer.window_set_size(map.size)
-	#DisplayServer.window_set_position(map.pos)
 
 
 func generate_map() -> void:

@@ -1,15 +1,18 @@
-[gd_scene format=3 uid="uid://ddbbrbtahjepy"]
+[gd_scene load_steps=2 format=3 uid="uid://ddbbrbtahjepy"]
+
+[ext_resource type="Script" uid="uid://dishbk8pxg12b" path="res://scripts/scn_menu.gd" id="1_afsgd"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_afsgd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 359.0
 offset_bottom = 356.0
 
-[node name="Btn Play" type="Button" parent="."]
+[node name="ButtonPlay" type="Button" parent="."]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 305.0
