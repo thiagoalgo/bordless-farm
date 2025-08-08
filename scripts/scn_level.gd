@@ -43,12 +43,8 @@ func setup(side: GameWindowSide = GameWindowSide.EAST,
 		map.orientation = GameWindowOrientation.HORIZONTAL
 
 	setup_done = true
-
-	
-func _init() -> void:
 	calc_win_size()
 	calc_win_pos()
-
 
 func _ready() -> void:
 	assert(setup_done, "Call setup() before using this class.")
