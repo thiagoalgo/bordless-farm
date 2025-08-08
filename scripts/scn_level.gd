@@ -15,8 +15,8 @@ enum GameWindowOrientation {
 	VERTICAL
 }
 
+var setup_done: bool = false
 var screen_size: Vector2i = DisplayServer.screen_get_size()
-
 var map: Dictionary = {
 	"size": Vector2i.ZERO,
 	"pos": Vector2i.ZERO,
@@ -26,30 +26,32 @@ var map: Dictionary = {
 	},
 	"side": GameWindowSide.NORTH,
 	"orientation": GameWindowOrientation.VERTICAL
-}
+}	
 
 @onready var tilemap := $TileMapLayer
 
 
-func _init() -> void:
-	#### For Test
-	#map.side = GameWindowSide.SOUTH
-	#map.side = GameWindowSide.NORTH
-	map.side = GameWindowSide.EAST
-	#map.side = GameWindowSide.WEST
-	
-	map.margin.top = 0
-	map.margin.bottom = 70
-	####
+func setup(side: GameWindowSide = GameWindowSide.EAST, 
+		margin_top: int = 0, 
+		margin_botton: int = 70
+) -> void:
+	map.side = side
+	map.margin.top = margin_top
+	map.margin.bottom = margin_botton
 	
 	if map.side == GameWindowSide.NORTH or map.side == GameWindowSide.SOUTH:
 		map.orientation = GameWindowOrientation.HORIZONTAL
 
+	setup_done = true
+
+	
+func _init() -> void:
 	calc_win_size()
 	calc_win_pos()
 
 
 func _ready() -> void:
+	assert(setup_done, "Call setup() before using this class.")
 	generate_map()
 	create_map()
 	
@@ -95,4 +97,3 @@ func generate_map() -> void:
 		for y in range(rows):
 			var pos: Vector2i = Vector2i(x, y)
 			tilemap.set_cells_terrain_connect([pos], 0, 0)
-

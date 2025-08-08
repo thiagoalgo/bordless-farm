@@ -34,6 +34,7 @@ func open_level() -> void:
 	if scn_level_instance: return
 	
 	scn_level_instance = scn_level.instantiate()
+	scn_level_instance.setup(scn_level_instance.GameWindowSide.NORTH, 0, 70)
 	DisplayServer.window_set_position(scn_level_instance.map.pos)
 	DisplayServer.window_set_size(scn_level_instance.map.size)
 	add_child(scn_level_instance)
