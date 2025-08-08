@@ -3,9 +3,9 @@ extends Node
 var scn_menu := preload("res://scenes/scn_menu.tscn")
 var scn_level := preload("res://scenes/scn_level.tscn")
 
-var scn_menu_instance: Node = null
+var scn_menu_instance: Node  = null
 var scn_level_instance: Node = null
-var screen_size = DisplayServer.screen_get_size()
+var screen_size: Vector2i    = DisplayServer.screen_get_size()
 
 
 func _ready() -> void:
@@ -38,5 +38,5 @@ func open_level() -> void:
 
 
 func _on_menu_button_play_pressed():
-	print("Play")
+	scn_menu_instance.queue_free()
 	open_level()

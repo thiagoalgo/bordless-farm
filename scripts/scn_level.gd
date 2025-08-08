@@ -1,7 +1,7 @@
 extends Node2D
 
-const TILE_WIDTH = 16
-const TILE_HEIGHT = 16
+const TILE_WIDTH: int  = 16
+const TILE_HEIGHT: int = 16
 
 enum GameWindowSide {
 	NORTH, 
@@ -17,7 +17,7 @@ enum GameWindowOrientation {
 
 var screen_size = DisplayServer.screen_get_size()
 
-var map = {
+var map: Dictionary = {
 	"size": Vector2i.ZERO,
 	"pos": Vector2i.ZERO,
 	"margin": {
@@ -94,7 +94,7 @@ func generate_map() -> void:
 	
 	for x in range(cols):
 		for y in range(rows):
-			var pos = Vector2i(x, y)
+			var pos: Vector2i = Vector2i(x, y)
 			tilemap.set_cells_terrain_connect([pos], 0, 0)
 			
 
@@ -102,7 +102,7 @@ func get_map_used_size() -> Vector2:
 	var used_rect = tilemap.get_used_rect() # em coordenadas de tile
 	var cell_size = tilemap.tile_set.tile_size # tamanho de cada tile em pixels (Vector2i)
 
-	var pixel_size = Vector2(
+	var pixel_size: Vector2 = Vector2(
 		used_rect.size.x * cell_size.x,
 		used_rect.size.y * cell_size.y
 	)
