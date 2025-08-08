@@ -12,6 +12,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	init_win()
 	open_menu()
+	#open_level()
 
 
 func  init_win() -> void:
@@ -33,6 +34,7 @@ func open_level() -> void:
 	if scn_level_instance: return
 	
 	DisplayServer.window_set_position(Vector2i(0, 0))
+	DisplayServer.window_set_size(screen_size)
 	scn_level_instance = scn_level.instantiate()
 	add_child(scn_level_instance)
 

@@ -15,7 +15,7 @@ enum GameWindowOrientation {
 	VERTICAL
 }
 
-var screen_size = DisplayServer.screen_get_size()
+var screen_size: Vector2i = DisplayServer.screen_get_size()
 
 var map: Dictionary = {
 	"size": Vector2i.ZERO,
