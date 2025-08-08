@@ -9,6 +9,7 @@ var screen_size = DisplayServer.screen_get_size()
 
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	init_win()
 	open_menu()
 	open_level()
@@ -20,9 +21,9 @@ func _process(delta: float) -> void:
 
 func  init_win() -> void:
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_TRANSPARENT, true)
-	#DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP, true)
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP, true)
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-	DisplayServer.window_set_mouse_passthrough(PackedVector2Array([Vector2(0, 0)]), true)
+	DisplayServer.window_set_mouse_passthrough(PackedVector2Array([Vector2(0, 0)]), false)
 	DisplayServer.window_set_position(Vector2i(0, 0))
 	DisplayServer.window_set_size(screen_size)
 	pass
