@@ -15,6 +15,9 @@ enum GameWindowOrientation {
 	VERTICAL
 }
 
+var scn_player := preload("res://scenes/scn_player.tscn")
+var scn_player_instance: Node = null
+
 var setup_done: bool = false
 var screen_size: Vector2i = DisplayServer.screen_get_size()
 var map: Dictionary = {
@@ -50,6 +53,7 @@ func _ready() -> void:
 	assert(setup_done, "Call setup() before using this class.")
 	generate_map()
 	create_map()
+	create_player()
 	
 	
 func calc_win_size() -> void:
@@ -93,3 +97,11 @@ func generate_map() -> void:
 		for y in range(rows):
 			var pos: Vector2i = Vector2i(x, y)
 			tilemap.set_cells_terrain_connect([pos], 0, 0)
+
+			
+func create_player() -> void:
+	if scn_player_instance: return
+		
+	scn_player_instance = scn_player.instantiate()
+	scn_player_instance.setup(map.size)
+	add_child(scn_player_instance)
