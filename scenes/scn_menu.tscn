@@ -5,17 +5,46 @@
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 359.0
+offset_bottom = 356.0
 script = ExtResource("1_afsgd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 359.0
-offset_bottom = 356.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ButtonPlay" type="Button" parent="."]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 305.0
-offset_right = 245.0
-offset_bottom = 336.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -33.0
+offset_right = 39.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionButtonSide" type="OptionButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "North"
+popup/item_0/id = 0
+popup/item_1/text = "South"
+popup/item_1/id = 1
+popup/item_2/text = "East"
+popup/item_2/id = 2
+popup/item_3/text = "West"
+popup/item_3/id = 3
+
+[node name="ButtonPlay" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "Play"
