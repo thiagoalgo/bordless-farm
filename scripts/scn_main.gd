@@ -44,10 +44,9 @@ func open_level() -> void:
 
 
 func _on_menu_button_play_pressed():
-	#scn_menu_instance.queue_free()
+	scn_menu_instance.queue_free()
 	open_level()
 
 
 func _on_option_button_side_item_selected(side: int) -> void:
-	print("Selected side: %d" % side)
 	selected_side = side
