@@ -24,6 +24,25 @@ window/size/transparent=true
 window/stretch/aspect="ignore"
 window/per_pixel_transparency/allowed=true
 
+[input]
+
+walk_up={
+"deadzone": 0.2,
+"events": []
+}
+walk_down={
+"deadzone": 0.2,
+"events": []
+}
+walk_left={
+"deadzone": 0.2,
+"events": []
+}
+walk_right={
+"deadzone": 0.2,
+"events": []
+}
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

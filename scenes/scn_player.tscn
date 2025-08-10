@@ -391,15 +391,17 @@ animations = [{
 radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_5ljc5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_hhpqf")
-animation = &"idle_front"
+animation = &"chopping_front"
 autoplay = "idle_front"
-frame_progress = 0.0149421
+frame_progress = 0.433021
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_g2els")
