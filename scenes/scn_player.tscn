@@ -399,7 +399,7 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_hhpqf")
 animation = &"chopping_front"
 autoplay = "idle_front"
-frame_progress = 0.433021
+frame_progress = 0.707528
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

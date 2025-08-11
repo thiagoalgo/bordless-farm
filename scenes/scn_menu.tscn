@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddbbrbtahjepy"]
+[gd_scene load_steps=3 format=3 uid="uid://ddbbrbtahjepy"]
 
 [ext_resource type="Script" uid="uid://dishbk8pxg12b" path="res://scripts/scn_menu.gd" id="1_afsgd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afsgd"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -16,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.171478, 0.473333, 0.20532, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -31,8 +34,40 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Music"
+
+[node name="OptionButtonMusic" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 6
+popup/item_0/text = "-- None --"
+popup/item_0/id = 0
+popup/item_1/text = "A Very Brady Special"
+popup/item_1/id = 1
+popup/item_2/text = "Evening"
+popup/item_2/id = 2
+popup/item_3/text = "Midinight Tale"
+popup/item_3/id = 3
+popup/item_4/text = "Moonlight Beach"
+popup/item_4/id = 4
+popup/item_5/text = "Morning"
+popup/item_5/id = 5
+
+[node name="HSliderMusic" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Side"
+
 [node name="OptionButtonSide" type="OptionButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 selected = 0
 item_count = 4
@@ -48,3 +83,74 @@ popup/item_3/id = 3
 [node name="ButtonPlay" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Play"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ButtonCredits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits
+"
+
+[node name="PanelCredits" type="Panel" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 0.686275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_afsgd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelCredits"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelCredits/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelCredits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelCredits/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Development: Thiago Goulart [thiagoalgo@gmail.com]
+
+\"A Very Brady Special\", \"Evening\", \"Midnight Tale\", \"Moonlight Beach\", \"Morning\"
+Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0
+http://creativecommons.org/licenses/by/3.0/"
+fit_content = true
+
+[node name="ButtonClose" type="Button" parent="PanelCredits/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -16.9
